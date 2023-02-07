@@ -5,7 +5,16 @@
 # HogeクラスのスーパークラスはStringである
 # 自身が"hoge"という文字列である時（HogeクラスはStringがスーパークラスなので、当然自身は文字列である）、trueを返すhoge?メソッドが定義されている
 
-class Hoge
+class Hoge < String
+  Hoge = 'hoge'
+
+  def hogehoge
+    'hoge'
+  end
+
+  def hoge?
+    self == 'hoge'
+  end
 end
 
 # Q2.
@@ -17,3 +26,33 @@ end
 # - Class
 # - Hash
 # - TrueClass
+
+module H
+  def hoge
+    'hoge'
+  end
+end
+
+class String
+  include H
+end
+
+class Integer
+  include H
+end
+
+class Numeric
+  include H
+end
+
+class Class
+  include H
+end
+
+class Hash
+  include H
+end
+
+class TrueClass
+  include H
+end
